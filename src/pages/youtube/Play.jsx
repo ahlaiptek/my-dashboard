@@ -1,10 +1,10 @@
 import { Container, Row } from "react-bootstrap"
 import PropTypes from 'prop-types'
 import { useContext } from "react"
-import AppContext from "../../context/AppContext"
+import YouTubeContext from "../../context/YouTubeContext"
 
 const Play = ({ embedId }) => {
-  const { setNavTitle } = useContext(AppContext)
+  const { setNavTitle } = useContext(YouTubeContext)
 
   setNavTitle('Play')
 
