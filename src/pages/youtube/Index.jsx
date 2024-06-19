@@ -2,10 +2,16 @@ import { useContext } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Card from './partials/Card'
 import YouTubeContext from '../../context/YouTubeContext'
+import { useEffect } from 'react'
+import convertCStoJSON from '../../utils/convertCSVtoJSON'
+import { useState } from 'react'
 
 const Index = () => {
-  const { setNavTitle } = useContext(YouTubeContext)
-  setNavTitle('YouTube')
+  const { setNavTitle, data } = useContext(YouTubeContext)
+
+  useEffect(() => {
+    setNavTitle('YouTube')
+  }, [setNavTitle])
 
   return (
     <Container>
@@ -13,13 +19,15 @@ const Index = () => {
         <header className='card'>
           <h3 className='text-center'>Hasil</h3>
         </header>
-        {[1, 2, 3, 4, 5].map((e, i) => {
+        {data ? (data.map((e, i) => {
           return (
             <Col key={i} sm='6' className='mt-2 mb-2'>
-              <Card />
+              <Card id={e['ID']} judul={e['Judul']} deskripsi={e['Deskripsi']} />
             </Col>
           )
-        })}
+        })) : (
+          <h6>Loading</h6>
+        )}
       </Row>
     </Container>
   )

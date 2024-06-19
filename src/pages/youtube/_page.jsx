@@ -9,20 +9,30 @@ import YouTubeContext from '../../context/YouTubeContext'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import Index from './Index'
+import convertCStoJSON from '../../utils/convertCSVtoJSON'
 
 const Page = () => {
-  const { setNavTitle } = useContext(AppContext)
-  setNavTitle('YouTube')
-
   const [data, setData] = useState(undefined)
+  const [playing, setPlaying] = useState(undefined)
 
   useEffect(() => {
-    setData(undefined)
+    const fetchData = async () => {
+      const url = import.meta.env.VITE_SPREADSHEET_YOUTUBE
+
+      const response = await fetch(url)
+      const data = await response.text()
+
+      let json = convertCStoJSON(data)
+      setData(json)
+    }
+
+    fetchData()
   }, [])
 
   const context = {
     ...useContext(AppContext),
-    data
+    data,
+    playing, setPlaying
   }
 
   return (
