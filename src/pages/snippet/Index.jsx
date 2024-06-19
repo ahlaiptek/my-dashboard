@@ -1,12 +1,15 @@
 import { Routes, Route } from 'react-router-dom'
 
+import Template from './Template'
 import Syntax from './Syntax'
 
 const Index = () => {
   return (
-    <Routes>
-      <Route path="/syntax" element={<Syntax />} />
-    </Routes>
+    <Template>
+      <Routes>
+        <Route path="/syntax" element={<Syntax />} />
+      </Routes>
+    </Template>
   )
 }
 
