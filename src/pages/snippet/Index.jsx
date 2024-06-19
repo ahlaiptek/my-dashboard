@@ -1,5 +1,13 @@
+import { Routes, Route } from 'react-router-dom'
+
+import Syntax from './Syntax'
+
 const Index = () => {
-  return <h1>Snippet</h1>
+  return (
+    <Routes>
+      <Route path="/syntax" element={<Syntax />} />
+    </Routes>
+  )
 }
 
-export default Index;
+export default Index
