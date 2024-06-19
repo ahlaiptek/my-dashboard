@@ -1,4 +1,4 @@
-import { Card, Container, Row } from 'react-bootstrap'
+import { Card, Col, Container, Row } from 'react-bootstrap'
 import { useContext, useState } from 'react'
 import YouTubeContext from '../../context/YouTubeContext'
 import { useEffect } from 'react'
@@ -15,27 +15,35 @@ const Play = () => {
   return (
     <Container className='p-2'>
       <Row>
-        <iframe
-          src={video['URL']}
-          title='YouTube video player'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-          allowFullScreen
-        />
+        <Col>
+          <iframe
+            src={video['URL']}
+            title='YouTube video player'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+            allowFullScreen
+            className='w-100'
+            style={{ aspectRatio: '16/9' }}
+          />
+        </Col>
       </Row>
       <Row className='mt-2'>
-        <Card>
-          <Card.Header>
-            <Card.Title>{video['Judul']}</Card.Title>
-          </Card.Header>
-          <Card.Body>
-            <Card.Text>
-              {video['Deskripsi']}
-            </Card.Text>
-          </Card.Body>
-        </Card>
+        <Col>
+          <Card>
+            <Card.Header>
+              <Card.Title>{video['Judul']}</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Card.Text>
+                {video['Deskripsi']}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
-      <Row>
-        <Link to='/youtube' className='btn btn-primary mt-2'>Kembali</Link>
+      <Row className='mt-2'>
+        <Col>
+          <Link to='/youtube' className='btn btn-primary'>Kembali</Link>
+        </Col>
       </Row>
     </Container>
   )
