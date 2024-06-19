@@ -12,6 +12,8 @@ import Footer from './partials/Footer'
 
 import { Container } from 'react-bootstrap'
 
+import './script'
+
 function App() {
   const [navTitle, setNavTitle] = useState('My Dashboard')
 
