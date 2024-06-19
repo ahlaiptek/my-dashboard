@@ -6,9 +6,12 @@ import Play from './Play'
 import AppContext from '../../context/AppContext'
 import { useContext } from 'react'
 import YouTubeContext from '../../context/YouTubeContext'
+// import { useState } from 'react'
 
 const Index = () => {
   const { setNavTitle } = useContext(AppContext)
+
+  // const [data, setData] = useState()
 
   setNavTitle('YouTube')
 
