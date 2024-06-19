@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import IndexHome from './pages/home/Index'
-import IndexSnippet from './pages/snippet/Index'
+import SnippetPage from './pages/snippet/_page'
 import YouTubePage from './pages/youtube/_page'
 
 import './App.css'
@@ -29,7 +29,7 @@ function App() {
           <Routes>
             <Route path='/' element={<IndexHome />} />
             <Route path='/youtube/*' element={<YouTubePage />} />
-            <Route path='/snippet/*' element={<IndexSnippet />} />
+            <Route path='/snippet/*' element={<SnippetPage />} />
           </Routes>
         </Container>
       </BrowserRouter>
