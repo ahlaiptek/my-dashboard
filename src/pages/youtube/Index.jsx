@@ -30,12 +30,12 @@ const Index = () => {
     <YouTubeContext.Provider value={context}>
       <Template>
         <Routes>
-          <Route path="/play" element={<Play />} />
+          <Route path='/play' element={<Play />} />
         </Routes>
         <Link to='/youtube/play'>Play</Link>
         <Container>
           <Row className='border rounded'>
-            <header className="card">
+            <header className='card'>
               <h3 className='text-center'>Hasil</h3>
             </header>
             {[1, 2, 3, 4, 5].map((e, i) => {

@@ -9,7 +9,7 @@ const Play = ({ embedId }) => {
   setNavTitle('Play')
 
   return (
-    <Container>
+    <Container className='p-2'>
       <Row className="justify-content-md-center">
         <iframe
           className="embed-responsive-item"
@@ -17,6 +17,9 @@ const Play = ({ embedId }) => {
           title="YouTube video player"
           allowFullScreen
         />
+      </Row>
+      <Row>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem, neque!</p>
       </Row>
     </Container>
   )
