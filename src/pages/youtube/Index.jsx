@@ -3,9 +3,6 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Card from './partials/Card'
 import YouTubeContext from '../../context/YouTubeContext'
 import { useEffect } from 'react'
-import convertCStoJSON from '../../utils/convertCSVtoJSON'
-import { useState } from 'react'
-
 const Index = () => {
   const { setNavTitle, data } = useContext(YouTubeContext)
 

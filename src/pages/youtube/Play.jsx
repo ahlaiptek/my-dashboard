@@ -5,19 +5,22 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const Play = () => {
-  const { setNavTitle, data, playing } = useContext(YouTubeContext)
+  let { setNavTitle, data, playing } = useContext(YouTubeContext)
+  data = data ? data : []
   const [video] = useState(data.find((e) => e['ID'] === playing))
 
   useEffect(() => {
     setNavTitle('Play')
   }, [setNavTitle])
 
+  if (!data) return <h6>Data kosong</h6>
+  
   return (
     <Container className='p-2'>
       <Row>
         <Col>
           <iframe
-            src={video['URL']}
+            src={video && video['URL']}
             title='YouTube video player'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
             allowFullScreen
@@ -30,11 +33,11 @@ const Play = () => {
         <Col>
           <Card>
             <Card.Header>
-              <Card.Title>{video['Judul']}</Card.Title>
+              <Card.Title>{video && video['Judul']}</Card.Title>
             </Card.Header>
             <Card.Body>
               <Card.Text>
-                {video['Deskripsi']}
+                {video && video['Deskripsi']}
               </Card.Text>
             </Card.Body>
           </Card>
