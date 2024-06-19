@@ -7,6 +7,7 @@ import './App.css'
 import Navbar from './partials/Navbar'
 import AppContext from './context/AppContext'
 import { useState } from 'react'
+import Footer from './partials/Footer'
 
 function App() {
   const [navTitle, setNavTitle] = useState('My Dashboard')
@@ -17,17 +18,18 @@ function App() {
 
   return (
     <AppContext.Provider value={context}>
-      <BrowserRouter>
+      <BrowserRouter basename='my-dashboard'>
         <Navbar />
         <Routes>
           <Route path='/' element={<IndexHome />} />
           <Route path='/snippet' element={<IndexSnippet />} />
         </Routes>
         <ul>
-          <li><Link to='/'>Satu</Link></li>
-          <li><Link to='/snippet'>Snippet</Link></li>
+          <li><Link to='./'>Satu</Link></li>
+          <li><Link to='./snippet'>Snippet</Link></li>
         </ul>
       </BrowserRouter>
+      <Footer />
     </AppContext.Provider>
   )
 }
