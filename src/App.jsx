@@ -6,10 +6,13 @@ import IndexSnippet from './pages/snippet/Index'
 import './App.css'
 import Navbar from './partials/Navbar'
 import AppContext from './context/AppContext'
+import { useState } from 'react'
 
 function App() {
-  const context = {
+  const [navTitle, setNavTitle] = useState('My Dashboard')
 
+  const context = {
+    navTitle, setNavTitle
   }
 
   return (
