@@ -4,10 +4,12 @@ import IndexHome from './pages/home/Index'
 import IndexSnippet from './pages/snippet/Index'
 
 import './App.css'
+import Navbar from './partials/Navbar'
 
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path='/' element={<IndexHome />} />
         <Route path='/snippet' element={<IndexSnippet />} />
